@@ -13,7 +13,6 @@ export async function generateCode(
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
-  // jsonPath: string,
 ) {
   const {userClass, units} = nsInfo
   const starter = `${codeDir}.starter`

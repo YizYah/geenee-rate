@@ -32,12 +32,10 @@ code generator based on geenee metadata.
 # Why
 A [geenee](https://www.npmjs.com/package/geenee) template is normally used for multiple generation of code. To do that, [geenee-spell](https://www.npmjs.com/package/geenee-spell) stores a `meta` directory within the generated code base to allow for regeneration.
 
-But sometimes you want to use a geenee template without creating a meta file in the code.
+But geenee templates are a very powerful tool for one-time creation as well.  For instance, you may not want to include a `meta` directory in your code.
 
 # What
-A single async function that generates from a specified geenee template and settings.
-
-You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat), or just by following the [steps for creating templates](https://geenee.nostack.net/Creating-Templates).
+A single async function that generates code from a specified geenee template and settings.
 
 # Usage
 Import the package:
@@ -68,6 +66,10 @@ try {
 # Example
 Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blob/main/src/custom/generateCode.ts).
 
+# Creating Templates
+You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat), or just by following the [steps for creating templates](https://geenee.nostack.net/Creating-Templates).
+
+
 [//]: # ( ns__custom_end badges )
 
 [//]: # ( ns__end_section intro )
@@ -78,12 +80,20 @@ Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blo
 
 [//]: # ( ns__custom_start APIIntro )
 # API
+```typescript
+async function generateCode(
+  codeDir: string,
+  nsInfo: NsInfo,
+  config: Configuration,
+  templateDir: string,
+)
+```
+The `NsInfo` and `Configuration` types are exposed in [magicalstrings](https://www.npmjs.com/package/magicalstrings).
 
 [//]: # ( ns__custom_end APIIntro )
 
 
 [//]: # ( ns__custom_start constantsIntro )
-## General Constants and Commands
 
 [//]: # ( ns__custom_end constantsIntro )
 
