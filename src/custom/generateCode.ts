@@ -19,9 +19,11 @@ export async function generateCode(
   templateDir: string,
   // jsonPath: string,
 ) {
-  const {userClass, units, starter} = nsInfo
-  if (!starter) throw new Error(`the '${fileNames.NS_FILE}' file contains no starter.  ` +
-    'You need a starter to generate code.')
+  const {userClass, units} = nsInfo
+  const starter = `${codeDir}.starter`
+
+  // if (!starter) throw new Error(`the '${fileNames.NS_FILE}' file contains no starter.  ` +
+  //   'You need a starter to generate code.')
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
 
