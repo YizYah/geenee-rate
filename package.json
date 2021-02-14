@@ -1,5 +1,5 @@
 {
-  "name": "one-way-ticket",
+  "name": "one-way",
   "version": "1.0.0",
   "description": "generator using a geenee template",
   "main": "lib/index.js",
@@ -39,16 +39,16 @@
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1"
   },
-  "bugs": "https://github.com/YizYah/one-way-ticket/issues",
+  "bugs": "https://github.com/YizYah/one-way/issues",
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
     "lib/**/*"
   ],
-  "homepage": "https://github.com/YizYah/one-way-ticket",
+  "homepage": "https://github.com/YizYah/one-way",
   "types": "lib/index.d.ts",
-  "repository": "YizYah/one-way-ticket",
+  "repository": "YizYah/one-way",
   "ava": {
     "extensions": [
       "ts"

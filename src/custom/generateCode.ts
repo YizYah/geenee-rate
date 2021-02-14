@@ -1,16 +1,12 @@
-import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
-
-const {dirNames, fileNames} = require('magicalstrings').constants
 import {Configuration, NsInfo, Schema} from 'magicalstrings'
+import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {configuredDirs} from './fileGeneration/configuredDirs'
 import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
 import {standardFiles} from './fileGeneration/standard/standardFiles'
 import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
-import {buildSchema} from './schema/buildSchema'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
-
-// const fs = require('fs-extra')
+import {buildSchema} from './schema/buildSchema'
 
 export async function generateCode(
   codeDir: string,
@@ -22,9 +18,6 @@ export async function generateCode(
   const {userClass, units} = nsInfo
   const starter = `${codeDir}.starter`
 
-  // if (!starter) throw new Error(`the '${fileNames.NS_FILE}' file contains no starter.  ` +
-  //   'You need a starter to generate code.')
-
   const stackInfo: Schema = await buildSchema(nsInfo, config)
 
   // console.log(`stacklocation=${codeDir}/stack.json`)
@@ -34,14 +27,10 @@ export async function generateCode(
   // const templateDir = `${metaDir}/${dirNames.TEMPLATE}`
 
   try {
-    // WARNING: breaking change from 1.6.8!!
-    // await standardFiles(template.dir, codeDir, nsInfo, stackInfo)
     await standardFiles(
       templateDir, codeDir, nsInfo, stackInfo
     )
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
     throw new Error(`error in creating standard files: ${error}`)
   }
 
@@ -52,8 +41,6 @@ export async function generateCode(
       )
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
     throw new Error(`error in creating configured dirs: ${error}`)
   }
 
@@ -97,7 +84,6 @@ export async function generateCode(
       templateDir,
       codeDir,
       nsInfo,
-      // stackInfo,
       config,
     )
     await updatePackageJson(

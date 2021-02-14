@@ -6,7 +6,6 @@ import {contextForStandard} from '../standard/contextForStandard'
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {Configuration} from 'magicalstrings'
-import {ActionsByActionType, Sources, Types, UserClasses} from 'magicalstrings/lib/exports/constants/types/schema'
 
 const fs = require('fs-extra')
 

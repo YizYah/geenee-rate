@@ -1,15 +1,15 @@
 userClass: user
-codeName: MyApp
+codeName: one-way
 template:
   dir: /home/yisroel/packages/packrat-ts-all/packrat
   name: null
   version: 1
-starter: /home/yisroel/packages/one-way-ticket-all/one-way-ticket.starter
+starter: /home/yisroel/packages/one-way-all/one-way.starter
 general:
-  packageName: one-way-ticket
+  packageName: one-way
   author: YizYah
   owner: YizYah
-  description: generator using a geenee template
-  repositoryName: one-way-ticket
+  description: code generator based on geenee metadata
+  repositoryName: one-way
   license: MIT
   multi: false
