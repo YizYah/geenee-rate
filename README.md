@@ -2,7 +2,7 @@
 [//]: # ( ns__file unit: standard, comp: README.md )
 
 [//]: # ( ns__custom_start beginning )
-![](src/custom/images/onewayticket.gif)
+![geenee-rate](src/custom/images/geenee-rate.gif)
 
 [//]: # ( ns__custom_end beginning )
 
@@ -29,15 +29,25 @@ code generator based on geenee metadata.
 [![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
 [![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)
 
-# Why
+<!-- toc -->
+
+* [:clipboard: Why](#why)
+* [:white_check_mark: What](#what)
+* [:wrench: Usage](#usage)
+* [:bulb: Example](#example)
+* [:zap: Creating Templates](#creating-templates)
+* [:cyclone: API](#api)
+  <!-- tocstop -->
+
+# :clipboard: Why
 A [geenee](https://www.npmjs.com/package/geenee) template is normally used for multiple generation of code. To do that, [geenee-spell](https://www.npmjs.com/package/geenee-spell) stores a `meta` directory within the generated code base to allow for regeneration.
 
 But geenee templates are a very powerful tool for one-time creation as well.  For instance, you may not want to include a `meta` directory in your code.
 
-# What
+# :white_check_mark: What
 A single async function that generates code from a specified geenee template and settings.
 
-# Usage
+# :wrench: Usage
 Import the package:
 ```console
 npm i geenee-rate
@@ -63,10 +73,10 @@ try {
   }
 ```
 
-# Example
+# :bulb: Example
 Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blob/main/src/custom/generateCode.ts).
 
-# Creating Templates
+# :zap: Creating Templates
 You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat), or just by following the [steps for creating templates](https://geenee.nostack.net/Creating-Templates).
 
 
@@ -79,7 +89,7 @@ You can create such a template easily from a code base using [copykat](https://w
 
 
 [//]: # ( ns__custom_start APIIntro )
-# API
+# :cyclone: API
 ```typescript
 async function generateCode(
   codeDir: string,
