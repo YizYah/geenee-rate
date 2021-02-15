@@ -22,9 +22,9 @@ code generator based on geenee metadata.
 
 [//]: # ( ns__start_section usageSection )
 
-[![Version](https://img.shields.io/npm/v/one-way-ticket.svg)](https://npmjs.org/package/one-way-ticket)
-[![Downloads/week](https://img.shields.io/npm/dw/one-way-ticket.svg)](https://npmjs.org/package/one-way-ticket)
-[![License](https://img.shields.io/npm/l/one-way-ticket.svg)](https://github.com/YizYah/one-way-ticket/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/geenee-rate.svg)](https://npmjs.org/package/geenee-rate)
+[![Downloads/week](https://img.shields.io/npm/dw/geenee-rate.svg)](https://npmjs.org/package/geenee-rate)
+[![License](https://img.shields.io/npm/l/geenee-rate.svg)](https://github.com/YizYah/geenee-rate/blob/master/package.json)
 
 [![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
 [![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)
@@ -40,7 +40,7 @@ A single async function that generates code from a specified geenee template and
 # Usage
 Import the package:
 ```console
-npm i one-way
+npm i geenee-rate
 ```
 
 Set the following in your code:
@@ -52,10 +52,10 @@ Set the following in your code:
 Then you can call:
 
 ```typescript
-const generateCode = require('one-way-ticket')
+const generate = require('geenee-rate')
 
 try {
-    await generateCode(
+    await generate(
       codeDir, nsInfo, config, templateDir
     )
   } catch (error) {

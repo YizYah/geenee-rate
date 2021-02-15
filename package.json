@@ -1,7 +1,7 @@
 {
-  "name": "one-way",
-  "version": "1.0.0",
-  "description": "generator using a geenee template",
+  "name": "geenee-rate",
+  "version": "0.0.1",
+  "description": "generator for geenee templates",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
@@ -12,7 +12,10 @@
     "prepack": "rm -rf lib && tsc -b"
   },
   "keywords": [
-    "ts-packrat"
+    "ts-packrat",
+    "geenee",
+    "generator",
+    "handlebars"
   ],
   "author": "YizYah",
   "license": "MIT",
