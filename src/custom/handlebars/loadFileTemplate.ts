@@ -4,7 +4,9 @@ const {fileMatchesCustomFileFilter} = require('magicalstrings').fileMatchesCusto
 import {Configuration}  from 'magicalstrings'
 const fs = require('fs-extra')
 const Handlebars = require('handlebars')
-
+require('handlebars-helpers')({
+  handlebars: Handlebars
+})
 Handlebars.registerHelper('curly', function (object: any, open: any) {
   return open ? '{' : '}'
 })
