@@ -7,6 +7,7 @@ import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 import {buildSchema} from './schema/buildSchema'
+import * as path from 'path';
 
 export async function generateCode(
   codeDir: string,
@@ -18,6 +19,7 @@ export async function generateCode(
   const starter = `${codeDir}.starter`
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
+  const finalTemplateDir = path.resolve(templateDir)
 
   // console.log(`stacklocation=${codeDir}/stack.json`)
   // const stackInfo: Schema = await fs.readJSON(jsonPath) // await generateJSON.bind(this)(template, codeDir)
@@ -27,7 +29,7 @@ export async function generateCode(
 
   try {
     await standardFiles(
-      templateDir, codeDir, nsInfo, stackInfo
+      finalTemplateDir, codeDir, nsInfo, stackInfo
     )
   } catch (error) {
     throw new Error(`error in creating standard files: ${error}`)
@@ -57,7 +59,7 @@ export async function generateCode(
       userClass,
       nsInfo,
       stackInfo,
-      templateDir,
+      finalTemplateDir,
       compDir,
       config
     )
@@ -67,7 +69,7 @@ export async function generateCode(
 
   try {
     await staticFiles(
-      templateDir,
+      finalTemplateDir,
       codeDir,
       nsInfo,
       stackInfo,
@@ -80,7 +82,7 @@ export async function generateCode(
   try {
     // const stackInfo: Schema = await buildSchema(nsInfo, config)
     const packageInfoJson = await getPackageInfoJson(
-      templateDir,
+      finalTemplateDir,
       codeDir,
       nsInfo,
       config,
