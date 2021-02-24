@@ -106,9 +106,20 @@ async function generateCode(
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
+  addStarter: boolean = true,
+  sessionIn: any = {},
 )
 ```
 The `NsInfo` and `Configuration` types are exposed in [magicalstrings](https://www.npmjs.com/package/magicalstrings).
+
+## arguments
+* codeDir: string telling the directory where you want the code to generate.
+* nsInfo: NsInfo telling about 
+* config: Configuration,
+* templateDir: string,
+* addStarter: boolean set by default to true.  It means that if the code contains a [head-starter](https://www.npmjs.com/package/head-starter) startup sequence, it will be executed.
+* sessionIn: object, by default empty.  It lets you apply a [dynamappig](https://www.npmjs.com/package/dynamapping) session to change the values of a startup sequence dynamically if you like.  `codeDir` is added to the session automatically, so you can insert `$codeDir` into your startup sequence already.
+
 
 [//]: # ( ns__custom_end APIIntro )
 

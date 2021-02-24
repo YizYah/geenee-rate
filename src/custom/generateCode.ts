@@ -9,23 +9,30 @@ import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 import {buildSchema} from './schema/buildSchema'
 import * as path from 'path';
 
+const createStarter = require('head-starter')
+const getConfig = require('magicalstrings').configs.getConfig
+
 export async function generateCode(
   codeDir: string,
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
+  addStarter = true,
+  sessionIn: any = {},
 ) {
+  const session = { ...sessionIn, codeDir}
   const {userClass, units} = nsInfo
-  const starter = `${codeDir}.starter`
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
   const finalTemplateDir = path.resolve(templateDir)
 
-  // console.log(`stacklocation=${codeDir}/stack.json`)
-  // const stackInfo: Schema = await fs.readJSON(jsonPath) // await generateJSON.bind(this)(template, codeDir)
-
-  // const metaDir = `${codeDir}/${dirNames.META}`
-  // const templateDir = `${metaDir}/${dirNames.TEMPLATE}`
+  if (addStarter) {
+    const config: Configuration = await getConfig(templateDir)
+    const {setupSequence} = config
+    await createStarter(
+      setupSequence, codeDir, session
+    )
+  }
 
   try {
     await standardFiles(
@@ -88,7 +95,7 @@ export async function generateCode(
       config,
     )
     await updatePackageJson(
-      codeDir, starter, packageInfoJson
+      codeDir, codeDir, packageInfoJson
     )
   } catch (error) {
     throw new Error(`could not build json: ${error}`)
