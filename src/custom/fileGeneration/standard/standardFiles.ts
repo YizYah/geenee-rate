@@ -1,11 +1,10 @@
-const {standardIgnored} = require('magicalstrings').constants
-import {NsInfo}  from 'magicalstrings'
-import {Schema} from 'magicalstrings'
+import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
+import {NsInfo, Schema} from 'magicalstrings'
 import {contextForStandard} from './contextForStandard'
 import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
-import {registerHelpers} from '../../handlebars/registerHelpers'
-import {registerPartials} from '../../handlebars/registerPartials'
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
+
+const {standardIgnored} = require('magicalstrings').constants
 const getConfig = require('magicalstrings').configs.getConfig
 const {fileOptions} = require('magicalstrings').constants.fileOptions
 
@@ -21,28 +20,7 @@ export async function standardFiles(
 ) {
   const standardDir = `${templateDir}/standard`
   const config = await getConfig(templateDir)
-
-  try {
-    await registerPartials(`${templateDir}/partials`)
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
-    throw new Error(`error registering the partials at ${templateDir}.
-It may be that the template location is faulty, or that the template is not
-correctly specified:
-${error}`)
-  }
-
-  try {
-    await registerHelpers(`${templateDir}/helpers`)
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
-    throw new Error(`error registering the helpers at ${templateDir}.
-It may be that the template location is faulty, or that the template is not
-correctly specified:
-${error}`)
-  }
+  await prepareHandlebars(templateDir)
 
   const paths = walk.sync(standardDir, {return_object: true})
   await Promise.all(Object.keys(paths).map(async pathString => {
