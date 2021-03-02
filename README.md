@@ -92,6 +92,8 @@ You can create such a template easily from a code base using [copykat](https://w
 
 Once you have created a basic template, geenee-rate has a built in [collection of handlebars helpers and context](https://github.com/YizYah/geenee-rate/wiki/Handlebars-in-Geenee-Rate) to make the job much simpler.
 
+Also, check out the [Creating Templates](https://geenee.nostack.net/Creating-Templates) on the
+[geenee](https://www.npmjs.com/package/geenee) documentation.
 
 [//]: # ( ns__custom_end badges )
 
@@ -121,7 +123,7 @@ The `NsInfo` and `Configuration` types are exposed in [magicalstrings](https://w
 * config: Configuration,
 * templateDir: string,
 * addStarter: boolean set by default to true.  It means that if the code contains a [head-starter](https://www.npmjs.com/package/head-starter) startup sequence, it will be executed.
-* sessionIn: object, by default empty.  It lets you apply a [dynamappig](https://www.npmjs.com/package/dynamapping) session to change the values of a startup sequence dynamically if you like.  `codeDir` is added to the session automatically, so you can insert `$codeDir` into your startup sequence already.
+* sessionIn: object, by default empty.  It lets you apply a [dynamapping](https://www.npmjs.com/package/dynamapping) session to change the values of a startup sequence dynamically if you like.  `codeDir` is added to the session automatically, so you can insert `$codeDir` into your startup sequence already.
 
 
 [//]: # ( ns__custom_end APIIntro )
