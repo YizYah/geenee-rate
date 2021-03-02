@@ -86,8 +86,11 @@ config = await getConfig(templateDir)
 
 # :bulb: Example
 Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blob/main/src/custom/regenerateCode.ts).
+
 # :zap: Creating Templates
-You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat), or just by following the [steps for creating templates](https://geenee.nostack.net/Creating-Templates).
+You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat).
+
+Once you have created a basic template, geenee-rate has a built in [collection of handlebars helpers and context](https://github.com/YizYah/geenee-rate/wiki/Handlebars-in-Geenee-Rate) to make the job much simpler.
 
 
 [//]: # ( ns__custom_end badges )
