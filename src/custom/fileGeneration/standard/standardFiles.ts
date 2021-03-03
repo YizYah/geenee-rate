@@ -3,6 +3,7 @@ import {NsInfo, Schema} from 'magicalstrings'
 import {contextForStandard} from './contextForStandard'
 import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
+import * as handlebars from 'handlebars'
 
 const {standardIgnored} = require('magicalstrings').constants
 const getConfig = require('magicalstrings').configs.getConfig
@@ -20,7 +21,7 @@ export async function standardFiles(
 ) {
   const standardDir = `${templateDir}/standard`
   const config = await getConfig(templateDir)
-  await prepareHandlebars(templateDir)
+  const Handlebars = await prepareHandlebars(templateDir)
 
   const paths = walk.sync(standardDir, {return_object: true})
   await Promise.all(Object.keys(paths).map(async pathString => {
@@ -53,7 +54,7 @@ export async function standardFiles(
       return
     }
 
-    const fileTemplate = await loadFileTemplate(pathString, config)
+    const fileTemplate = await loadFileTemplate(pathString, config, handlebars)
     const newFileName = path.join(parsed.dir, parsed.name)
     const newLocalFileName = newFileName.replace(codeDir + '/', '')
 

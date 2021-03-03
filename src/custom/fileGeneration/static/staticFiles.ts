@@ -1,12 +1,11 @@
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
-import {registerHelpers} from '../../handlebars/registerHelpers'
-import {registerPartials} from '../../handlebars/registerPartials'
 import {Configuration} from 'magicalstrings'
 const {placeholders} = require('magicalstrings').constants
 import {contextForStatic} from './contextForStatic'
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
+import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
 
 const fs = require('fs-extra')
 
@@ -20,18 +19,7 @@ export async function staticFiles(
   const staticInfo = nsInfo.static
   if (!staticInfo) return
   const staticTypesWithFiles = Object.keys(staticInfo)
-
-  try {
-    await registerPartials(`${templateDir}/partials`)
-    await registerHelpers(`${templateDir}/helpers`)
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
-    throw new Error(`error registering the partials or helpers at ${templateDir}.
-It may be that the template location is faulty, or that the template is not
-correctly specified:
-${error}`)
-  }
+  const Handlebars = await prepareHandlebars(templateDir)
 
   await Promise.all(staticTypesWithFiles.map(async (staticType: string) => {
     const staticTypeInfo = config.static[staticType]
@@ -51,7 +39,7 @@ ${error}`)
         const pathString = `${templateDir}/static/${fileType}.hbs`
 
         try {
-          const fileTemplate = await loadFileTemplate(pathString, config)
+          const fileTemplate = await loadFileTemplate(pathString, config, Handlebars)
 
           const {slug, specs} = instanceInfo
           const fileName = name.replace(placeholders.SLUG, slug) + suffix

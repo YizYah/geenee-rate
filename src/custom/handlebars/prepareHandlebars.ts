@@ -1,7 +1,10 @@
 import {registerPartials} from './registerPartials'
 import {registerHelpers} from './registerHelpers'
+import {createHandlebars} from './createHandlebars'
 
 export async function prepareHandlebars(templateDir: string) {
+
+  const Handlebars = createHandlebars()
 
   try {
     await registerPartials(`${templateDir}/partials`)
@@ -24,4 +27,6 @@ It may be that the template location is faulty, or that the template is not
 correctly specified:
 ${error}`)
   }
+
+  return Handlebars
 }

@@ -1,13 +1,10 @@
 import {expandNsAbbreviations} from './expandNsbbreviations'
 const {fileMatchesCustomFileFilter} = require('magicalstrings').fileMatchesCustomFileFilter
 import {Configuration}  from 'magicalstrings'
-import {createHandlebars} from './createHandlebars'
 const fs = require('fs-extra')
 
-const Handlebars = createHandlebars()
-
 export async function loadFileTemplate(
-  pathString: string, config: Configuration|null, noFileInfo = false
+  pathString: string, config: Configuration|null, Handlebars: any, noFileInfo = false
 ) {
   // noFileInfo suppresses generation of a file info tag at the beginning of the template.
   let template = ''

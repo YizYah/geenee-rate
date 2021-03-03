@@ -9,6 +9,7 @@ const {parseSpecName} = require('magicalstrings').constants.parseSpecName
 import {unitNameFromSpec} from '../unitNameFromSpec'
 const {dirNames} = require('magicalstrings').constants
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
+import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
 
 export async function dynamicFiles(
   config: Configuration, nsInfo: NsInfo, codeDir: string
@@ -29,7 +30,9 @@ export async function dynamicFiles(
   const metaDir = `${codeDir}/${dirNames.META}`
   const templateDir = `${metaDir}/${dirNames.TEMPLATE}`
 
-  const queryFileTemplate = await loadFileTemplate(`${templateDir}/query.hbs`, config)
+  const Handlebars = await prepareHandlebars(templateDir)
+
+  const queryFileTemplate = await loadFileTemplate(`${templateDir}/query.hbs`, config, Handlebars)
   try {
     await Promise.all(Object.keys(units).map(async unitKey => {
       const unit = unitNameFromSpec(unitKey)

@@ -1,8 +1,6 @@
 import {contextForDynamic} from '../contextForDynamic'
 import {loadFileTemplate} from '../../../handlebars/loadFileTemplate'
 import {makeDirs} from '../makeDirs'
-import {registerHelpers} from '../../../handlebars/registerHelpers'
-import {registerPartials} from '../../../handlebars/registerPartials'
 import {componentName} from './componentName'
 import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
 import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'
@@ -29,20 +27,20 @@ export async function generateTypeFile(
   const dir = componentName(type, componentTypes[boilerPlateInfo.componentType])
   // console.log(`dir=${dir}`)
 
-  try {
-    await registerPartials(`${templateDir}/partials`)
-    await registerHelpers(`${templateDir}/helpers`)
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
-    throw new Error(`error registering the partials or helpers at ${templateDir}.
-It may be that the template location is faulty, or that the template is not
-correctly specified:
-${error}`)
-  }
+//   try {
+//     await registerPartials(`${templateDir}/partials`)
+//     await registerHelpers(`${templateDir}/helpers`)
+//   } catch (error) {
+//     // eslint-disable-next-line no-console
+//     console.log(error)
+//     throw new Error(`error registering the partials or helpers at ${templateDir}.
+// It may be that the template location is faulty, or that the template is not
+// correctly specified:
+// ${error}`)
+//   }
 
   // console.log(`here's a list of helpers: ${JSON.stringify(Handlebars.helpers, null, 2)}`)
-  const genericTemplate = await loadFileTemplate(`${templateDir}/generic.hbs`, config)
+  const genericTemplate = await loadFileTemplate(`${templateDir}/generic.hbs`, config, Handlebars)
 
   const path = `${compDir}/${singularName(source)}/${dir}`
   const dirList = [
