@@ -63,8 +63,14 @@ export const contextForStandard = async (
   //   unitName: unit,
   //   component: names.component,
   // }) + ', loc:'
+  let general: any = {}
+  try {
+    general = await createGeneralInfo(nsInfo, codeDir)
 
-  const general = await createGeneralInfo(nsInfo, codeDir)
+  } catch (error) {
+    throw new Error(`couldn't create General Info: ${error}`)
+  }
+
   const nsFlipDocumentation = links.DOCUMENTATION
 
   return {
