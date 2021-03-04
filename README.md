@@ -90,7 +90,8 @@ Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blo
 # :zap: Creating Templates
 You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat).
 
-Once you have created a basic template, geenee-rate has a built in [collection of handlebars helpers and context](https://github.com/YizYah/geenee-rate/wiki/Handlebars-in-Geenee-Rate) to make the job much simpler.
+Once you have created a basic template, geenee-rate has a [built-in context](https://github.com/YizYah/geenee-rate/wiki/Context-in-Geenee-Rate) to make the job much simpler. See the documenation of [barbells](https://www.npmjs.com/package/barbells) for treatment of handlebars helpers and partials.  You may find that you don't need to add any custom helpers.
+
 
 Also, check out the [Creating Templates](https://geenee.nostack.net/Creating-Templates) on the
 [geenee](https://www.npmjs.com/package/geenee) documentation.
