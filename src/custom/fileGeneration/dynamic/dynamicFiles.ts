@@ -4,12 +4,12 @@ const fs = require('fs-extra')
 
 import {NsInfo}  from 'magicalstrings'
 const {allCaps} = require('magicalstrings').inflections
-import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+const {loadFileTemplate} = require('barbells')
 const {parseSpecName} = require('magicalstrings').constants.parseSpecName
 import {unitNameFromSpec} from '../unitNameFromSpec'
 const {dirNames} = require('magicalstrings').constants
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
-import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
+const {prepareHandlebars} = require('barbells')
 
 export async function dynamicFiles(
   config: Configuration, nsInfo: NsInfo, codeDir: string
@@ -32,7 +32,9 @@ export async function dynamicFiles(
 
   const Handlebars = await prepareHandlebars(templateDir)
 
-  const queryFileTemplate = await loadFileTemplate(`${templateDir}/query.hbs`, config, Handlebars)
+  const queryFileTemplate = await loadFileTemplate(
+    `${templateDir}/query.hbs`, Handlebars, config.format.customFileFilter
+  )
   try {
     await Promise.all(Object.keys(units).map(async unitKey => {
       const unit = unitNameFromSpec(unitKey)

@@ -1,5 +1,5 @@
 import {contextForDynamic} from '../contextForDynamic'
-import {loadFileTemplate} from '../../../handlebars/loadFileTemplate'
+const {loadFileTemplate} = require('barbells')
 import {makeDirs} from '../makeDirs'
 import {componentName} from './componentName'
 import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
@@ -40,7 +40,9 @@ export async function generateTypeFile(
 //   }
 
   // console.log(`here's a list of helpers: ${JSON.stringify(Handlebars.helpers, null, 2)}`)
-  const genericTemplate = await loadFileTemplate(`${templateDir}/generic.hbs`, config, Handlebars)
+  const genericTemplate = await loadFileTemplate(
+    `${templateDir}/generic.hbs`, Handlebars, config.format.customFileFilter
+  )
 
   const path = `${compDir}/${singularName(source)}/${dir}`
   const dirList = [

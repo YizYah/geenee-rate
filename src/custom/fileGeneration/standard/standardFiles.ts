@@ -1,9 +1,8 @@
-import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
+const {prepareHandlebars} = require('barbells')
 import {NsInfo, Schema} from 'magicalstrings'
 import {contextForStandard} from './contextForStandard'
-import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+const {loadFileTemplate} = require('barbells')
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
-import * as handlebars from 'handlebars'
 
 const {standardIgnored} = require('magicalstrings').constants
 const getConfig = require('magicalstrings').configs.getConfig
@@ -54,7 +53,9 @@ export async function standardFiles(
       return
     }
 
-    const fileTemplate = await loadFileTemplate(pathString, config, handlebars)
+    const fileTemplate = await loadFileTemplate(
+      pathString, Handlebars, config.format.customFileFilter
+    )
     const newFileName = path.join(parsed.dir, parsed.name)
     const newLocalFileName = newFileName.replace(codeDir + '/', '')
 

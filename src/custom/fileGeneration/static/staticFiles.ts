@@ -1,11 +1,11 @@
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
-import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+const {loadFileTemplate} = require('barbells')
 import {Configuration} from 'magicalstrings'
 const {placeholders} = require('magicalstrings').constants
 import {contextForStatic} from './contextForStatic'
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
-import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
+const {prepareHandlebars} = require('barbells')
 
 const fs = require('fs-extra')
 
@@ -39,7 +39,7 @@ export async function staticFiles(
         const pathString = `${templateDir}/static/${fileType}.hbs`
 
         try {
-          const fileTemplate = await loadFileTemplate(pathString, config, Handlebars)
+          const fileTemplate = await loadFileTemplate(pathString, Handlebars, config.format.customFileFilter)
 
           const {slug, specs} = instanceInfo
           const fileName = name.replace(placeholders.SLUG, slug) + suffix

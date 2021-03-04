@@ -1,11 +1,11 @@
-import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+const {loadFileTemplate} = require('barbells')
 const {fileNames} = require('magicalstrings').constants
 import {contextForStandard} from '../standard/contextForStandard'
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {Configuration} from 'magicalstrings'
-import {prepareHandlebars} from '../../handlebars/prepareHandlebars'
 
+const {prepareHandlebars} = require('barbells')
 const fs = require('fs-extra')
 
 export async function getPackageInfoJson(
@@ -49,7 +49,7 @@ export async function getPackageInfoJson(
 //   }
 
   const fileTemplate = await loadFileTemplate(
-    packageInfoJsonFile, config, Handlebars, true,
+    packageInfoJsonFile, Handlebars, config.format.customFileFilter, true,
   )
 
   const fileText = await fileTemplate(await contextForStandard(
