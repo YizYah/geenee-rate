@@ -1,11 +1,11 @@
 import {Configuration} from 'magicalstrings'
 import {NsInfo}  from 'magicalstrings'
 const {pluralLowercaseName, pluralName, singularName} = require('magicalstrings').inflections
-import {createGeneralInfo} from '../createGeneralInfo'
 const {links} = require('magicalstrings').constants
 
-const Handlebars = require('handlebars')
+import {createGeneralInfo} from './createGeneralInfo'
 
+const Handlebars = require('handlebars')
 const fileInfoString = Handlebars.compile('unit: {{unitName}}, comp: {{component}}')
 
 export const contextForStatic = async (

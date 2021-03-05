@@ -1,6 +1,6 @@
 const {prepareHandlebars} = require('barbells')
 import {NsInfo, Schema} from 'magicalstrings'
-import {contextForStandard} from './contextForStandard'
+import {contextForStandard} from '../../context/contextForStandard'
 const {loadFileTemplate} = require('barbells')
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 

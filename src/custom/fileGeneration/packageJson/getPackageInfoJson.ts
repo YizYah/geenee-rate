@@ -1,6 +1,6 @@
 const {loadFileTemplate} = require('barbells')
 const {fileNames} = require('magicalstrings').constants
-import {contextForStandard} from '../standard/contextForStandard'
+import {contextForStandard} from '../../context/contextForStandard'
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {Configuration} from 'magicalstrings'

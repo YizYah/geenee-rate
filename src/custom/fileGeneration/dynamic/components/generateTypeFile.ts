@@ -1,16 +1,13 @@
-import {contextForDynamic} from '../contextForDynamic'
-const {loadFileTemplate} = require('barbells')
+import {contextForDynamic} from '../../../context/contextForDynamic'
+const {loadFileTemplate, prepareHandlebars} = require('barbells')
 import {makeDirs} from '../makeDirs'
-import {componentName} from './componentName'
+import {componentName} from '../../../componentName/componentName'
 import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
 import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'
 
-const Handlebars = require('handlebars')
-const H = require('just-handlebars-helpers')
+const Handlebars = prepareHandlebars()
 const fs = require('fs-extra')
 const {singularName} = require('magicalstrings').inflections
-
-H.registerHelpers(Handlebars)
 
 export async function generateTypeFile(
   type: string,

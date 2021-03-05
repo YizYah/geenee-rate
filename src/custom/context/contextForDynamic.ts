@@ -1,4 +1,4 @@
-import {componentName} from './components/componentName'
+import {componentName} from '../componentName/componentName'
 import {BoilerPlateInfoType, Configuration, NsInfo, Schema, TreeTypeChildrenList} from 'magicalstrings'
 
 const {associationTypes, dataTypes, links, nodeTypes} =
