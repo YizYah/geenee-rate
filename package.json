@@ -1,6 +1,6 @@
 {
   "name": "geenee-rate",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "generator for geenee templates",
   "main": "lib/index.js",
   "scripts": {
