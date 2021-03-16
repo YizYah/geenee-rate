@@ -15,10 +15,7 @@ module.exports = {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-explicit-any":"off",
-        "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/no-unused-vars": [
-            "error"
-        ]
+        "@typescript-eslint/ban-ts-comment": "off"
         /* ns__custom_end lintRules */
     }
 }
