@@ -32,17 +32,18 @@ test('check Config', async t => {
     'node_modules': mockFs.load(path.resolve(__dirname, '../../node_modules')),
   })
 
-  fs.readdir(SAMPLE_CODE + '/meta', (err: any, files: any) => {
-    files.forEach((file: any) => {
-      console.log(file);
-    });
-  });
+  // fs.readdir(SAMPLE_CODE + '/meta', (err: any, files: any) => {
+  //   files.forEach((file: any) => {
+  //     console.log(file);
+  //   });
+  // });
 
   // const newCustomJsonBefore = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
   // console.log(`newCustomJsonBefore.addedCode=${JSON.stringify(newCustomJsonBefore.addedCode.standard['README.md'], null, 2)}`)
 
-  const tempFile = await fs.readFile(SAMPLE_CODE + '/temp.txt')
-  console.log(`tempFile=${tempFile}`)
+  // const tempFile = await fs.readFile(SAMPLE_CODE + '/temp.txt')
+  // console.log(`tempFile=${tempFile}`)
+  //
 
   // ensure that extra file exists
   let tempFileExists = await fs.pathExists(SAMPLE_CODE + '/temp.txt')
@@ -52,9 +53,8 @@ test('check Config', async t => {
   let newFileExists = await fs.pathExists(SAMPLE_CODE + '/new.txt')
   t.false(newFileExists)
 
-
   await generateCode(
-    SAMPLE_CODE, nsInfo, config, TEMPLATE, false
+    SAMPLE_CODE, nsInfo, config, TEMPLATE,
   )
 
   // check whether new file created
@@ -62,16 +62,9 @@ test('check Config', async t => {
   t.true(newFileExists)
 
 
-// TODO: this is failing!
-//   //check whether extra file gets deleted
-//   tempFileExists = await fs.pathExists(SAMPLE_CODE + '/src/temp.txt')
-//   t.false(tempFileExists)
-
   // const newCustomJson = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
   // console.log(`newCustomJson=${JSON.stringify(newCustomJson.addedCode.standard['README.md'], null, 2)}`)
 
-
-    t.is(1,1)
 
   //
   // await setConfig(mockTemplateDir, config)
