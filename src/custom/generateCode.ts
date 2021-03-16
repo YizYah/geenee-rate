@@ -36,8 +36,6 @@ export async function generateCode(
     )
   }
 
-  console.log('running locally geenee-rate...')
-
   try {
     await standardFiles(
       finalTemplateDir, codeDir, nsInfo, stackInfo
