@@ -1,8 +1,7 @@
 const {nodeTypes} = require('magicalstrings').constants
-import {NsInfo}  from 'magicalstrings'
-import {SourceInfo, Schema} from 'magicalstrings'
+import {BoilerPlateInfoType, NsInfo, SourceInfo, Schema} from 'magicalstrings'
 import {generateTypeFile} from './generateTypeFile'
-import {BoilerPlateInfoType, Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 export async function generateFilesForType(
   appInfo: NsInfo,

@@ -1,5 +1,5 @@
 import {unitNameFromSpec} from './unitNameFromSpec'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 const {fileOptions} = require('magicalstrings').constants.fileOptions
 
 const fs = require('fs-extra')

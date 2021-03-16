@@ -2,7 +2,8 @@ import {contextForDynamic} from '../../../context/contextForDynamic'
 const {loadFileTemplate, prepareHandlebars} = require('barbells')
 import {makeDirs} from '../makeDirs'
 import {componentName} from '../../../componentName/componentName'
-import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
+import {BoilerPlateInfoType, NsInfo, Schema} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'
 
 const Handlebars = prepareHandlebars()

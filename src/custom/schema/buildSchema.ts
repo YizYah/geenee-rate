@@ -7,7 +7,7 @@ import {addUserClass} from './newUserClass'
 import {addUnits} from './addUnits'
 import {addJoins} from './addJoins'
 import {setSelectionRoots} from './setSelectionRoots'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 const {allCaps} = require('magicalstrings').inflections
 const emptySchema: Schema = {
   userClasses: {},

@@ -1,6 +1,6 @@
 const {dataTypes, nodeTypes, typePrefixes, constraintTypes} = require('magicalstrings').constants
 import {Schema, SpecNameInfo} from 'magicalstrings'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 const inflection = require('inflection')
 // const createActionsForType = require('./createActionsForType')
 // import {assnTypesForPrefix} from './assnTypesForPrefix'

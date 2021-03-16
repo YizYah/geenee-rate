@@ -1,4 +1,6 @@
-import {Configuration, NsInfo, Schema} from 'magicalstrings'
+import {NsInfo, Schema} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
+
 import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {configuredDirs} from './fileGeneration/configuredDirs'
 import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
@@ -10,7 +12,7 @@ import {buildSchema} from './schema/buildSchema'
 import * as path from 'path';
 
 const createStarter = require('head-starter')
-const getConfig = require('magicalstrings').configs.getConfig
+const {getConfig} = require('cogs-box')
 
 export async function generateCode(
   codeDir: string,
@@ -33,6 +35,8 @@ export async function generateCode(
       setupSequence, codeDir, session
     )
   }
+
+  console.log('running locally geenee-rate...')
 
   try {
     await standardFiles(

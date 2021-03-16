@@ -1,4 +1,4 @@
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 import {NsInfo}  from 'magicalstrings'
 const {pluralLowercaseName, pluralName, singularName} = require('magicalstrings').inflections
 const {links} = require('magicalstrings').constants
