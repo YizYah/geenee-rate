@@ -61,6 +61,12 @@ test('check Config', async t => {
   newFileExists = await fs.pathExists(SAMPLE_CODE + '/new.txt')
   t.true(newFileExists)
 
+  // check whether json created
+  newFileExists = await fs.pathExists(SAMPLE_CODE + '/package.json')
+  t.true(newFileExists)
+  const codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
+  t.is(codeJson.addedKey, 'blah')
+
 
   // const newCustomJson = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
   // console.log(`newCustomJson=${JSON.stringify(newCustomJson.addedCode.standard['README.md'], null, 2)}`)

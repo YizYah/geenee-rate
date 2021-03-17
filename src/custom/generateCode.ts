@@ -1,15 +1,15 @@
 import {NsInfo, Schema} from 'magicalstrings'
 import {Configuration} from 'cogs-box'
 
-import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {configuredDirs} from './fileGeneration/configuredDirs'
 import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
 import {standardFiles} from './fileGeneration/standard/standardFiles'
 import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
-import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 import {buildSchema} from './schema/buildSchema'
 import * as path from 'path';
+import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
+import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 
 // const createStarter = require('head-starter')
 // const {getConfig} = require('cogs-box')
@@ -96,6 +96,7 @@ export async function generateCode(
       nsInfo,
       config,
     )
+
     await updatePackageJson(
       codeDir, codeDir, packageInfoJson
     )
