@@ -1,9 +1,9 @@
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 const {loadFileTemplate} = require('barbells')
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 const {placeholders} = require('magicalstrings').constants
-import {contextForStatic} from './contextForStatic'
+import {contextForStatic} from '../../context/contextForStatic'
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 const {prepareHandlebars} = require('barbells')
 

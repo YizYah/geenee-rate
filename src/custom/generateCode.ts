@@ -1,4 +1,6 @@
-import {Configuration, NsInfo, Schema} from 'magicalstrings'
+import {NsInfo, Schema} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
+
 import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {configuredDirs} from './fileGeneration/configuredDirs'
 import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
@@ -9,30 +11,30 @@ import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 import {buildSchema} from './schema/buildSchema'
 import * as path from 'path';
 
-const createStarter = require('head-starter')
-const getConfig = require('magicalstrings').configs.getConfig
+// const createStarter = require('head-starter')
+// const {getConfig} = require('cogs-box')
 
 export async function generateCode(
   codeDir: string,
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
-  addStarter = true,
-  sessionIn: any = {},
+  // addStarter = true,
+  // sessionIn: any = {},
 ) {
-  const session = { ...sessionIn, codeDir}
+  // const session = { ...sessionIn, codeDir}
   const {userClass, units} = nsInfo
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
   const finalTemplateDir = path.resolve(templateDir)
 
-  if (addStarter) {
-    const config: Configuration = await getConfig(templateDir)
-    const {setupSequence} = config
-    await createStarter(
-      setupSequence, codeDir, session
-    )
-  }
+  // if (addStarter) {
+  //   const config: Configuration = await getConfig(templateDir)
+  //   const {setupSequence} = config
+  //   await createStarter(
+  //     setupSequence, codeDir, session
+  //   )
+  // }
 
   try {
     await standardFiles(

@@ -8,7 +8,7 @@ const {allCaps} = require('magicalstrings').inflections
 import {newType} from './newType'
 // const pluralize = require('pluralize');
 const {parseSpecName} = require('magicalstrings').constants.parseSpecName
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 // const highestLevel = 'highestLevel';
 
 // const getTypeString = (node: any) => {

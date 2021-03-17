@@ -1,5 +1,6 @@
-import {componentName} from './components/componentName'
-import {BoilerPlateInfoType, Configuration, NsInfo, Schema, TreeTypeChildrenList} from 'magicalstrings'
+import {componentName} from '../componentName/componentName'
+import {BoilerPlateInfoType, NsInfo, Schema, TreeTypeChildrenList} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 const {associationTypes, dataTypes, links, nodeTypes} =
   require('magicalstrings').constants

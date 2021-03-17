@@ -2,7 +2,9 @@
 [//]: # ( ns__file unit: standard, comp: README.md )
 
 [//]: # ( ns__custom_start beginning )
+
 ![geenee-rate](src/custom/images/geenee-rate.gif)
+
 
 [//]: # ( ns__custom_end beginning )
 
@@ -22,12 +24,23 @@ code generator based on geenee metadata.
 
 [//]: # ( ns__start_section usageSection )
 
+[![codecov](https://codecov.io/gh/YizYah/geenee-rate/branch/main/graph/badge.svg?token=019QO4XK1Z)](https://codecov.io/gh/YizYah/geenee-rate)
 [![Version](https://img.shields.io/npm/v/geenee-rate.svg)](https://npmjs.org/package/geenee-rate)
 [![Downloads/week](https://img.shields.io/npm/dw/geenee-rate.svg)](https://npmjs.org/package/geenee-rate)
 [![License](https://img.shields.io/npm/l/geenee-rate.svg)](https://github.com/YizYah/geenee-rate/blob/master/package.json)
 
 [![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
 [![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)
+
+[//]: # ( ns__custom_end badges )
+
+[//]: # ( ns__end_section intro )
+
+
+[//]: # ( ns__start_section api )
+
+
+[//]: # ( ns__custom_start APIIntro )
 
 <!-- toc -->
 
@@ -96,41 +109,28 @@ Once you have created a basic template, geenee-rate has a [built-in context](htt
 Also, check out the [Creating Templates](https://geenee.nostack.net/Creating-Templates) on the
 [geenee](https://www.npmjs.com/package/geenee) documentation.
 
-[//]: # ( ns__custom_end badges )
 
-[//]: # ( ns__end_section intro )
-
-
-[//]: # ( ns__start_section api )
+[//]: # ( ns__custom_end APIIntro )
 
 
-[//]: # ( ns__custom_start APIIntro )
+[//]: # ( ns__custom_start constantsIntro )
+
 # :cyclone: API
-```typescript
+```
 async function generateCode(
   codeDir: string,
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
-  addStarter: boolean = true,
-  sessionIn: any = {},
 )
 ```
 The `NsInfo` and `Configuration` types are exposed in [magicalstrings](https://www.npmjs.com/package/magicalstrings).
 
 ## arguments
 * codeDir: string telling the directory where you want the code to generate.
-* nsInfo: NsInfo telling about 
+* nsInfo: NsInfo telling about
 * config: Configuration,
 * templateDir: string,
-* addStarter: boolean set by default to true.  It means that if the code contains a [head-starter](https://www.npmjs.com/package/head-starter) startup sequence, it will be executed.
-* sessionIn: object, by default empty.  It lets you apply a [dynamapping](https://www.npmjs.com/package/dynamapping) session to change the values of a startup sequence dynamically if you like.  `codeDir` is added to the session automatically, so you can insert `$codeDir` into your startup sequence already.
-
-
-[//]: # ( ns__custom_end APIIntro )
-
-
-[//]: # ( ns__custom_start constantsIntro )
 
 [//]: # ( ns__custom_end constantsIntro )
 

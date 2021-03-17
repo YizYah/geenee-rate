@@ -1,11 +1,11 @@
 const {prepareHandlebars} = require('barbells')
 import {NsInfo, Schema} from 'magicalstrings'
-import {contextForStandard} from './contextForStandard'
+import {contextForStandard} from '../../context/contextForStandard'
 const {loadFileTemplate} = require('barbells')
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 
 const {standardIgnored} = require('magicalstrings').constants
-const getConfig = require('magicalstrings').configs.getConfig
+const {getConfig} = require('cogs-box')
 const {fileOptions} = require('magicalstrings').constants.fileOptions
 
 const fs = require('fs-extra')

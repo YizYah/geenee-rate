@@ -1,16 +1,13 @@
-import {contextForDynamic} from '../contextForDynamic'
-const {loadFileTemplate} = require('barbells')
+import {contextForDynamic} from '../../../context/contextForDynamic'
+const {loadFileTemplate, prepareHandlebars} = require('barbells')
 import {makeDirs} from '../makeDirs'
-import {componentName} from './componentName'
-import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
+import {componentName} from '../../../componentName/componentName'
+import {BoilerPlateInfoType, NsInfo, Schema} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'
 
-const Handlebars = require('handlebars')
-const H = require('just-handlebars-helpers')
 const fs = require('fs-extra')
 const {singularName} = require('magicalstrings').inflections
-
-H.registerHelpers(Handlebars)
 
 export async function generateTypeFile(
   type: string,
@@ -22,6 +19,8 @@ export async function generateTypeFile(
   compDir: string,
   config: Configuration,
 ) {
+  const Handlebars = prepareHandlebars(templateDir)
+
   const {componentTypes} = config
   if (!componentTypes) throw new Error('No component types found for the template.')
   const dir = componentName(type, componentTypes[boilerPlateInfo.componentType])
