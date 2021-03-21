@@ -43,7 +43,7 @@ code generator based on geenee metadata.
 # :clipboard: Why
 A [geenee](https://www.npmjs.com/package/geenee) template is normally used for multiple generation of code. To do that, [geenee-spell](https://www.npmjs.com/package/geenee-spell) stores a `meta` directory within the generated code base to allow for regeneration.
 
-But geenee templates are a very powerful tool for one-time creation as well.  For instance, you may not want to include a `meta` directory in your code.
+But `geenee` templates are a very powerful tool for one-time creation as well.  For instance, you may not want to include a `meta` directory in your code.
 
 # :white_check_mark: What
 A single async function that generates code from a specified geenee template and settings.
