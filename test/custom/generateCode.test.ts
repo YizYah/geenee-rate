@@ -79,8 +79,12 @@ test('check Config', async t => {
   codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
   t.is(codeJson.addedKey, 'blah')
   t.is(codeJson.nonReplacedKey, 'nonReplacedValue')
+  t.is(codeJson.name, 'NsName')
+  t.is(codeJson.config.originalConfigKey, 'originalConfigValue')
+  t.is(codeJson.config.ghooks['pre-commit'], 'npm run test')
 
-  console.log(`final json is: ${JSON.stringify(codeJson, null, 2)}`)
+  // console.log(`final json is: ${JSON.stringify(codeJson, null, 2)}`)
+
 
 
 

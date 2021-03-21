@@ -1,6 +1,7 @@
 // const {removeNpmDependencyPrefix} = require('magicalstrings').removeNpmDependencyPrefix
 
 const fs = require('fs-extra')
+const merge = require('deepmerge')
 // const semverGt = require('semver/functions/gt')
 
 export async function updatePackageJson(
@@ -36,7 +37,7 @@ export async function updatePackageJson(
     //   }
     // })
 
-    const finalPackageJson = {...codePackageJson, ...packageInfoJson}
+    const finalPackageJson = merge(codePackageJson, packageInfoJson)
     await fs.writeJson(
       codePackageJsonPath, finalPackageJson, {spaces: 2}
     )

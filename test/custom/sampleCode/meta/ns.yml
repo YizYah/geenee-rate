@@ -6,7 +6,7 @@ template:
   version: 1
 starter: /home/yisroel/temp/test/foo.starter
 general:
-  packageName: foo
+  packageName: NsName
   author: YizYah
   owner: YizYah
   repositoryName: foo

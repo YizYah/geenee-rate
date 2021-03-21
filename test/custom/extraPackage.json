@@ -2,6 +2,9 @@
   "name": "original name",
   "nonReplacedKey": "nonReplacedValue",
   "config": {
+    "ghooks": {
+      "pre-commit": "originalPrecommit"
+    },
     "originalConfigKey": "originalConfigValue"
   }
 }
