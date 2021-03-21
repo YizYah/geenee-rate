@@ -13,6 +13,7 @@ test('check Config', async t => {
   const codeDir = __dirname + '/' + SAMPLE_CODE
   const nsInfo = await getNsInfo(codeDir)
   const templateDir = __dirname + '/' + TEMPLATE
+  const extraPackageJson = __dirname + '/extraPackage.json'
   const config = await getConfig(templateDir)
 
 
@@ -29,6 +30,7 @@ test('check Config', async t => {
   mockFs({
     [SAMPLE_CODE]: mockFs.load(codeDir),
     [TEMPLATE]: mockFs.load(templateDir),
+    'extraPackage.json': mockFs.load(extraPackageJson),
     'node_modules': mockFs.load(path.resolve(__dirname, '../../node_modules')),
   })
 
@@ -64,8 +66,22 @@ test('check Config', async t => {
   // check whether json created
   newFileExists = await fs.pathExists(SAMPLE_CODE + '/package.json')
   t.true(newFileExists)
-  const codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
+
+  // check whether the general package.json info copied over when there is no package.json
+  let codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
   t.is(codeJson.addedKey, 'blah')
+
+  // check whether the general package.json info replaces an existing one
+  await fs.copy('extraPackage.json', SAMPLE_CODE + '/package.json')  //replace json file
+  await generateCode(
+    SAMPLE_CODE, nsInfo, config, TEMPLATE,
+  )
+  codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
+  t.is(codeJson.addedKey, 'blah')
+  t.is(codeJson.nonReplacedKey, 'nonReplacedValue')
+
+  console.log(`final json is: ${JSON.stringify(codeJson, null, 2)}`)
+
 
 
   // const newCustomJson = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
