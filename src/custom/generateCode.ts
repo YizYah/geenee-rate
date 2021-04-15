@@ -11,30 +11,33 @@ import * as path from 'path';
 import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 
-// const createStarter = require('head-starter')
-// const {getConfig} = require('cogs-box')
+const createStarter = require('head-starter')
+const {getConfig} = require('cogs-box')
+const execa = require('execa')
+const fs = require('fs-extra')
 
 export async function generateCode(
   codeDir: string,
   nsInfo: NsInfo,
   config: Configuration,
   templateDir: string,
-  // addStarter = true,
-  // sessionIn: any = {},
+  addStarter = true,
+  sessionIn: any = {},
+  removeExistingStarter=true
 ) {
-  // const session = { ...sessionIn, codeDir}
+  const session = { ...sessionIn, codeDir}
   const {userClass, units} = nsInfo
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
   const finalTemplateDir = path.resolve(templateDir)
 
-  // if (addStarter) {
-  //   const config: Configuration = await getConfig(templateDir)
-  //   const {setupSequence} = config
-  //   await createStarter(
-  //     setupSequence, codeDir, session
-  //   )
-  // }
+  if (addStarter) {
+    const config: Configuration = await getConfig(templateDir)
+    const {setupSequence} = config
+    await createStarter(
+      setupSequence, codeDir, session, removeExistingStarter
+    )
+  }
 
   try {
     await standardFiles(
@@ -121,4 +124,10 @@ export async function generateCode(
   // } catch (error) {
   //   throw error
   // }
+  try {
+    if (await fs.pathExists(codeDir + '/package.json'))
+      await execa('npm', ['install', '--prefix', codeDir])
+  } catch (error) {
+    throw error
+  }
 }
