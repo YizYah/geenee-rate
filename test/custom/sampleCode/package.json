@@ -1,24 +1,24 @@
 {
-  "name": "{{general.packageName}}",
-  "description": "{{general.description}}",
-  "author": "{{general.author}}",
-  "addedKey":"blah",
-  "bugs": "https://github.com/{{general.owner}}/{{general.repositoryName}}/issues",
+  "name": "NsName",
+  "description": "",
+  "author": "YizYah",
+  "addedKey": "blah",
+  "bugs": "https://github.com/YizYah/foo/issues",
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
     "lib/**/*"
   ],
-  "homepage": "https://github.com/{{general.owner}}/{{general.repositoryName}}",
+  "homepage": "https://github.com/YizYah/foo",
   "keywords": [
     "ts-packrat",
     "geenee"
   ],
-  "license": "{{general.license}}",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "{{general.owner}}/{{general.repositoryName}}",
+  "repository": "YizYah/foo",
   "scripts": {
     "build": "tsc",
     "commit": "git-cz",
@@ -30,7 +30,6 @@
     "semantic-release": "semantic-release",
     "view-coverage": "nyc --extension .ts ava --forbid-only"
   },
-  "types": "lib/index.d.ts",
   "ava": {
     "files": [
       "test/**/*.test.ts"

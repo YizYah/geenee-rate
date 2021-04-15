@@ -8,7 +8,7 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
-foo
+NsName
 ======
 
 
@@ -22,9 +22,9 @@ foo
 
 [//]: # ( ns__start_section usageSection )
 
-[![Version](https://img.shields.io/npm/v/foo.svg)](https://npmjs.org/package/foo)
-[![Downloads/week](https://img.shields.io/npm/dw/foo.svg)](https://npmjs.org/package/foo)
-[![License](https://img.shields.io/npm/l/foo.svg)](https://github.com/YizYah/foo/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/NsName.svg)](https://npmjs.org/package/NsName)
+[![Downloads/week](https://img.shields.io/npm/dw/NsName.svg)](https://npmjs.org/package/NsName)
+[![License](https://img.shields.io/npm/l/NsName.svg)](https://github.com/YizYah/foo/blob/master/package.json)
 
 [![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
 [![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)

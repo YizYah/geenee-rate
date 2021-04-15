@@ -128,18 +128,10 @@ setupSequence:
       arguments:
         - init
         - $codeDir
-    - title: create package.json
-      file: npm
-      arguments:
-        - init
-        - '-y'
-      options:
-        cwd: $codeDir
-
-  mainInstallation:
-    - barbells
-  devInstallation:
-    - cogs-box
+#  mainInstallation:
+#    - barbells
+#  devInstallation:
+#    - cogs-box
 
 ignore:
   - test/custom
