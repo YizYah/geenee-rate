@@ -41,11 +41,9 @@ export async function updatePackageJson(
     await fs.writeJson(
       codePackageJsonPath, finalPackageJson, {spaces: 2}
     )
-    return
+    return finalPackageJson
   }
   await fs.writeJson(
     codePackageJsonPath, packageInfoJson, {spaces: 2}
   )
-
-
 }
