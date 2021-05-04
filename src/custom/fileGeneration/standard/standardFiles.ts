@@ -5,7 +5,7 @@ const {loadFileTemplate} = require('barbells')
 import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 
 const {standardIgnored} = require('magicalstrings').constants
-const getConfig = require('magicalstrings').configs.getConfig
+const {getConfig} = require('cogs-box')
 const {fileOptions} = require('magicalstrings').constants.fileOptions
 
 const fs = require('fs-extra')

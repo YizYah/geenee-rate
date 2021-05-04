@@ -1,4 +1,4 @@
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 import {commentDelimiters} from './commentDelimiters'
 const {placeholders} = require('magicalstrings').constants
 

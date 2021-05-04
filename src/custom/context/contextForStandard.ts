@@ -1,7 +1,7 @@
 import {NsInfo, BackendIdList} from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {createGeneralInfo} from './createGeneralInfo'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 const {dataTypes, nodeTypes, magicStrings, links} = require('magicalstrings').constants
 const {

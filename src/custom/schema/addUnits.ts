@@ -1,5 +1,6 @@
 import {newUnit} from './newUnit'
-import {Configuration, Schema, Units} from 'magicalstrings'
+import {Schema, Units} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 export function addUnits(
   units: Units, schema: Schema, config: Configuration
