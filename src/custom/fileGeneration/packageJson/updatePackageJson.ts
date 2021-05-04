@@ -39,5 +39,8 @@ export async function updatePackageJson(
     await fs.writeJson(
       codePackageJsonPath, finalPackageJson, {spaces: 2}
     )
+    return finalPackageJson
   }
+
+  return {}
 }

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../bash-fool-all/bash-fool/.idea/bash-fool.iml" filepath="$PROJECT_DIR$/../bash-fool-all/bash-fool/.idea/bash-fool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../geenee-all/geenee/.idea/geenee.iml" filepath="$PROJECT_DIR$/../geenee-all/geenee/.idea/geenee.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/geenee-rate.iml" filepath="$PROJECT_DIR$/.idea/geenee-rate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../head-starter-all/head-starter/.idea/head-starter.iml" filepath="$PROJECT_DIR$/../head-starter-all/head-starter/.idea/head-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../installist-all/installist/.idea/installist.iml" filepath="$PROJECT_DIR$/../installist-all/installist/.idea/installist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../interactic-all/interactic/.idea/interactic.iml" filepath="$PROJECT_DIR$/../interactic-all/interactic/.idea/interactic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../roving-reporter-all/roving-reporter/.idea/roving-reporter.iml" filepath="$PROJECT_DIR$/../roving-reporter-all/roving-reporter/.idea/roving-reporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../roving-reporter-all/.idea/roving-reporter-all.iml" filepath="$PROJECT_DIR$/../roving-reporter-all/.idea/roving-reporter-all.iml" />
+      <module fileurl="file://$USER_HOME$/projects/api.wiki/scripts/.idea/scripts.iml" filepath="$USER_HOME$/projects/api.wiki/scripts/.idea/scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../temp/.idea/temp.iml" filepath="$PROJECT_DIR$/../temp/.idea/temp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ts-packrat/.idea/ts-packrat.iml" filepath="$PROJECT_DIR$/../ts-packrat/.idea/ts-packrat.iml" />
     </modules>
   </component>
 </project>
