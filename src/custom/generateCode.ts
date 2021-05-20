@@ -6,7 +6,7 @@ import {standardFiles} from './fileGeneration/standard/standardFiles'
 import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
-import {buildSchema} from './schema/buildSchema'
+import {buildSchema} from './stack-info/buildSchema'
 import * as path from 'path';
 
 const createStarter = require('head-starter')
