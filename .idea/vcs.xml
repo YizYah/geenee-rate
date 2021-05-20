@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../bash-fool-all/bash-fool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../geenee-all/geenee" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../head-starter-all/head-starter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../installist-all/installist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../interactic-all/interactic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../roving-reporter-all/roving-reporter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../ts-packrat" vcs="Git" />
   </component>
 </project>
