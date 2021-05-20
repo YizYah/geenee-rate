@@ -1,7 +1,7 @@
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {generateUnitTypeFiles} from './generateUnitTypeFiles'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 export async function generateAppTypeFiles(
   userClass: string,

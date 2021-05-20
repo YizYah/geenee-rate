@@ -1,12 +1,12 @@
 userClass: user
-codeName: one-way
+codeName: geenee-rate
 template:
   dir: /home/yisroel/packages/packrat-ts-all/packrat
   name: null
   version: 1
-starter: /home/yisroel/packages/one-way-all/one-way.starter
+starter: /home/yisroel/packages/geenee-rate-all/geenee-rate.starter
 general:
-  packageName: one-way
+  packageName: geenee-rate
   author: YizYah
   owner: YizYah
   description: code generator based on geenee metadata

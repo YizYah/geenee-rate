@@ -2,7 +2,7 @@ const {unitTypes} = require('magicalstrings').constants
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {generateFilesForType} from './generateFilesForType'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 export async function generateUnitTypeFiles(
   source: string,

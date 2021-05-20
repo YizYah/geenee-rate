@@ -1,4 +1,4 @@
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 const fs = require('fs-extra')
 

@@ -3,7 +3,7 @@ const {fileNames} = require('magicalstrings').constants
 import {contextForStandard} from '../../context/contextForStandard'
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
-import {Configuration} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
 
 const {prepareHandlebars} = require('barbells')
 const fs = require('fs-extra')

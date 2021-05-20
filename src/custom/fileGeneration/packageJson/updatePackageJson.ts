@@ -5,6 +5,7 @@ export async function updatePackageJson(
   codeDir: string, starter: string, packageInfoJson: any
 ) {
   const codePackageJsonPath = `${codeDir}/package.json`
+
   let codePackageJson: any = {}
   if (await fs.pathExists(codePackageJsonPath)) {
     codePackageJson = await fs.readJson(codePackageJsonPath)
@@ -27,4 +28,5 @@ export async function updatePackageJson(
   )
 
   return finalPackageJson
+
 }

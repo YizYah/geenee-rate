@@ -1,16 +1,20 @@
-import {Configuration, NsInfo, Schema} from 'magicalstrings'
-import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
+import {NsInfo, Schema} from 'magicalstrings'
+import {Configuration} from 'cogs-box'
+
 import {configuredDirs} from './fileGeneration/configuredDirs'
 import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
 import {standardFiles} from './fileGeneration/standard/standardFiles'
 import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
-import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 import {buildSchema} from './stack-info/buildSchema'
 import * as path from 'path';
+import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
+import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 
 const createStarter = require('head-starter')
-const getConfig = require('magicalstrings').configs.getConfig
+const {getConfig} = require('cogs-box')
+const execa = require('execa')
+const fs = require('fs-extra')
 
 export async function generateCode(
   codeDir: string,
@@ -19,6 +23,7 @@ export async function generateCode(
   templateDir: string,
   addStarter = true,
   sessionIn: any = {},
+  removeExistingStarter=true
 ) {
   const session = { ...sessionIn, codeDir}
   const {userClass, units} = nsInfo
@@ -30,7 +35,7 @@ export async function generateCode(
     const config: Configuration = await getConfig(templateDir)
     const {setupSequence} = config
     await createStarter(
-      setupSequence, codeDir, session
+      setupSequence, codeDir, session, removeExistingStarter
     )
   }
 
@@ -94,6 +99,7 @@ export async function generateCode(
       nsInfo,
       config,
     )
+
     await updatePackageJson(
       codeDir, codeDir, packageInfoJson
     )
@@ -118,4 +124,10 @@ export async function generateCode(
   // } catch (error) {
   //   throw error
   // }
+  try {
+    if (await fs.pathExists(codeDir + '/package.json'))
+      await execa('npm', ['install', '--prefix', codeDir])
+  } catch (error) {
+    throw error
+  }
 }
