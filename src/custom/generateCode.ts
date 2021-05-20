@@ -6,7 +6,7 @@ import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
 import {standardFiles} from './fileGeneration/standard/standardFiles'
 import {staticFiles} from './fileGeneration/static/staticFiles'
 import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
-import {buildSchema} from './stack-info/buildSchema'
+const buildSchema = require('create-stack-info')
 import * as path from 'path';
 import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
