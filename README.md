@@ -2,7 +2,7 @@
 [//]: # ( ns__file unit: standard, comp: README.md )
 
 [//]: # ( ns__custom_start beginning )
-![geenee-rate](src/custom/images/geenee-rate-new.gif)
+![geenee-rate](images/geenee-rate-new.gif)
 
 [//]: # ( ns__custom_end beginning )
 
