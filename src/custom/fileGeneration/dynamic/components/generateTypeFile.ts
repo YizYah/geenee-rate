@@ -1,7 +1,7 @@
-import {contextForDynamic} from '../../../context/contextForDynamic'
+import {contextForDynamic} from '../../context/contextForDynamic'
 const {loadFileTemplate, prepareHandlebars} = require('barbells')
 import {makeDirs} from '../makeDirs'
-import {componentName} from '../../../componentName/componentName'
+import {componentName} from '../../componentName/componentName'
 import {BoilerPlateInfoType, NsInfo, Schema} from 'magicalstrings'
 import {Configuration} from 'cogs-box'
 import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'

@@ -1,10 +1,6 @@
 import test from 'ava';
 
-import { updatePackageJson } from '../../src/custom/fileGeneration/packageJson/updatePackageJson';
 import { mergePackageJsons } from '../../src/custom/fileGeneration/packageJson/mergePackageJsons';
-
-const codeDir = __dirname + '/../sampleCodeDir'
-const starter = __dirname + '/../sampleStarter'
 
 // input jsons
 const avaInfo = {
@@ -105,6 +101,25 @@ const starterPackageJson = {
 }
 
 
+const starterPackageJsonNoDevDependencies = {
+  "dependencies": {
+    "older": "^2.0.0",
+    "same": "^1.1.1",
+    "newer": "^1.0.0",
+    "onlyStarter": "^10.1.1",
+  },
+}
+
+const starterPackageJsonNoDependencies = {
+  "devDependencies": {
+    "devOlder": "^2.0.1",
+    "devSame": "^1.1.1",
+    "devNewer": "^1.1.1",
+    "devOnlyStarter": "^10.1.1",
+  },
+}
+
+
 // expected results
 const expectedDependencies = {
   "newer": "^1.1.1",
@@ -140,6 +155,19 @@ test('mergePackageJsons with empty codePackage and existing starterPackage', asy
   t.deepEqual(json.devDependencies, starterPackageJson.devDependencies )
 });
 
+test('mergePackageJsons no dependencies', async t => {
+  const json = mergePackageJsons({}, starterPackageJsonNoDependencies, packageJsonInfo)
+  t.deepEqual(json.ava, avaInfo )
+  t.deepEqual(json.devDependencies, starterPackageJson.devDependencies )
+});
+
+test('mergePackageJsons no dev dependencies', async t => {
+  const json = mergePackageJsons({}, starterPackageJsonNoDevDependencies, packageJsonInfo)
+  t.deepEqual(json.ava, avaInfo )
+  t.deepEqual(json.dependencies, starterPackageJson.dependencies )
+});
+
+
 test('mergePackageJsons with exiting codePackage and starterPackage', async t => {
   const json = mergePackageJsons(codePackageJson, starterPackageJson, packageJsonInfo)
   t.deepEqual(json.ava, avaInfo )
@@ -151,17 +179,5 @@ test('mergePackageJsons with exiting codePackage and starterPackage', async t =>
 
 });
 
-test('updatePackageJson', async t => {
-  const mockFs = require('mock-fs');
-  const path = require('path');
-  const fs = require('fs-extra');
 
-  mockFs({
-    [codeDir]: {/* empty directory */},
-    'node_modules': mockFs.load(path.resolve(__dirname, '../../node_modules')),
-  })
 
-  const json = await updatePackageJson(codeDir, starter, packageJsonInfo)
-  t.deepEqual(json.ava, avaInfo )
-  mockFs.restore()
-});
