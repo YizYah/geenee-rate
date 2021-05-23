@@ -1,0 +1,15 @@
+userClass: user
+codeName: MyApp
+template:
+  dir: some/where
+  name: null
+  version: 1
+starter: some/where/starter
+general:
+  packageName: sample
+  author: Frank
+  owner: Frank
+  description: does not do a thing
+  repositoryName: sample
+  license: MIT
+  multi: false

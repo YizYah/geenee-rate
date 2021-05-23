@@ -11,19 +11,12 @@ test.skip('check Config', async t => {
   const SAMPLE_CODE = 'sampleCode'
   const TEMPLATE = 'template'
   const codeDir = __dirname + '/' + SAMPLE_CODE
+  console.log(`codeDir=${codeDir}`)
   const nsInfo = await getNsInfo(codeDir)
+  console.log(`nsInfo in the test = ${JSON.stringify(nsInfo)}`)
   const templateDir = __dirname + '/' + TEMPLATE
   const extraPackageJson = __dirname + '/extraPackage.json'
   const config = await getConfig(templateDir)
-
-
-  // let error = await t.throwsAsync(async () => {
-  //   await getConfig(__dirname + 'faultyTemplate')
-  // })
-  // t.regex(error.message, /no such file/)
-  //
-  //
-  //
 
   console.log(`in the test, config.setupSequence=${JSON.stringify(config.setupSequence, null, 2)}`)
 
