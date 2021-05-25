@@ -1,16 +1,16 @@
 {
   "name": "NsName",
-  "description": "",
-  "author": "YizYah",
+  "description": "does not do a thing",
+  "author": "Frank",
   "addedKey": "blah",
-  "bugs": "https://github.com/YizYah/foo/issues",
+  "bugs": "https://github.com/Frank/sample/issues",
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
     "lib/**/*"
   ],
-  "homepage": "https://github.com/YizYah/foo",
+  "homepage": "https://github.com/Frank/sample",
   "keywords": [
     "ts-packrat",
     "geenee"
@@ -18,15 +18,11 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "YizYah/foo",
+  "repository": "Frank/sample",
   "scripts": {
     "build": "tsc",
     "commit": "git-cz",
     "lint": "eslint \"src/**/*.ts\"",
-    "lintfix": "eslint \"src/**/*.ts\" --fix",
-    "test": "ava",
-    "posttest": "npm run view-coverage && npm run lint",
-    "prepack": "rm -rf lib && tsc -b",
     "semantic-release": "semantic-release",
     "view-coverage": "nyc --extension .ts ava --forbid-only"
   },

@@ -23,10 +23,6 @@
     "build": "tsc",
     "commit": "git-cz",
     "lint": "eslint \"src/**/*.ts\"",
-    "lintfix": "eslint \"src/**/*.ts\" --fix",
-    "test": "ava",
-    "posttest": "npm run view-coverage && npm run lint",
-    "prepack": "rm -rf lib && tsc -b",
     "semantic-release": "semantic-release",
     "view-coverage": "nyc --extension .ts ava --forbid-only"
   },

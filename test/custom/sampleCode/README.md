@@ -10,7 +10,7 @@
 [//]: # ( ns__custom_start description )
 NsName
 ======
-
+does not do a thing
 
 [//]: # ( ns__custom_end description )
 
@@ -24,7 +24,7 @@ NsName
 
 [![Version](https://img.shields.io/npm/v/NsName.svg)](https://npmjs.org/package/NsName)
 [![Downloads/week](https://img.shields.io/npm/dw/NsName.svg)](https://npmjs.org/package/NsName)
-[![License](https://img.shields.io/npm/l/NsName.svg)](https://github.com/YizYah/foo/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/NsName.svg)](https://github.com/Frank/sample/blob/master/package.json)
 
 [![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
 [![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)

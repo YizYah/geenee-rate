@@ -1,0 +1,36 @@
+'use strict'
+const getCognito = require('../config/getCognito')
+
+const deleteQuery = `
+  MATCH ({{names.singularLowercase}}:{{names.singular}} {id: ${{names.singularLowercase}} })
+  DETACH DELETE {{names.singularLowercase}}`
+
+const delete{{names.singular}} = async (params, session) => {
+  const { username, userPoolId, {{names.singularLowercase}}Id } = params
+  const payload = {
+    UserPoolId: userPoolId,
+    Username: username
+  }
+  const cognito = getCognito()
+  try {
+    await new Promise(function (resolve, reject) {
+      cognito.adminDeleteUser(payload, function (err, data) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+    await session.run(deleteQuery, {
+      {{names.singularLowercase}}Id
+    })
+  } catch (err) {
+    throw new Error(err.message)
+  } finally {
+    await session.close()
+  }
+  return true
+}
+
+module.exports = delete{{names.singular}}
