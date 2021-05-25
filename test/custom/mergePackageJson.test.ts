@@ -83,6 +83,7 @@ const codePackageJson = {
   "files": [
     "lib/**/*"
   ],
+  "nonReplacedKey": "nonReplacedValue",
 }
 
 const starterPackageJson = {
@@ -176,6 +177,7 @@ test('mergePackageJsons with exiting codePackage and starterPackage', async t =>
   t.deepEqual(json.keywords.sort, expectedKeywords.sort )
   t.deepEqual(json.config, packageJsonInfo.config )
   t.deepEqual(json.files, packageJsonInfo.files )
+  t.deepEqual(json.nonReplacedKey, 'nonReplacedValue') // was not in starter or info
 
 });
 

@@ -6,7 +6,7 @@ template:
   version: 1
 starter: some/where/starter
 general:
-  packageName: sample
+  packageName: NsName
   author: Frank
   owner: Frank
   description: does not do a thing

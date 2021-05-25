@@ -31,12 +31,25 @@ export async function generateCode(
   const stackInfo: Schema = await buildSchema(nsInfo, config)
   const finalTemplateDir = path.resolve(templateDir)
 
+  /*
+  console.log(`in generated code, at the beginning.  codeDir=${codeDir}. Here are contents:`)
+  fs.readdirSync(codeDir).forEach((file:any) => {
+    console.log(file);
+  });
+   */
+
+
   if (addStarter) {
-    const config: Configuration = await getConfig(templateDir)
-    const {setupSequence} = config
-    await createStarter(
-      setupSequence, codeDir, session, removeExistingStarter
-    )
+    try {
+
+      const config: Configuration = await getConfig(templateDir)
+      const {setupSequence} = config
+      await createStarter(
+          setupSequence, codeDir, session, removeExistingStarter
+      )
+    } catch(error) {
+      throw new Error(`error in creating a starter: ${error}`)
+    }
   }
 
   try {
@@ -59,9 +72,13 @@ export async function generateCode(
 
   // mapObject
   if (units) {
-    await dynamicFiles(
-      config, nsInfo, codeDir
-    )
+    try {
+      await dynamicFiles(
+          config, nsInfo, codeDir
+      )
+    } catch (error) {
+      throw new Error(`error in generating dynamic files: ${error}`)
+    }
   }
 
   const compDir = `${codeDir}/${config.dirs.components}`
@@ -124,6 +141,7 @@ export async function generateCode(
   // } catch (error) {
   //   throw error
   // }
+
   try {
     if (await fs.pathExists(codeDir + '/package.json'))
       await execa('npm', ['install', '--prefix', codeDir])

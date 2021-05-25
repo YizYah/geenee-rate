@@ -4,8 +4,7 @@
 
 /* types */
 
-    /* ns__custom_start export */
-    // replace this with your own export
-    module.exports = "hello world"
-    /* ns__custom_end export */
-/* constants */
+/* ns__custom_start export */
+// replace this with your own export
+module.exports = "hello world"
+/* ns__custom_end export */

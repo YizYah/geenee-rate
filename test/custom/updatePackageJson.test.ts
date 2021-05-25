@@ -66,9 +66,9 @@ const packageJsonInfo = {
 }
 
 const packageInfoJson={
-  "name": "sample",
-  "description": "does not do a thing",
-  "author": "Frank",
+  "name": "packackeInfoJson Sample",
+  "description": "a profound leap",
+  "author": "Stock",
   "addedKey": "blah",
   "bugs": "https://github.com/Frank/sample/issues",
   "engines": {
