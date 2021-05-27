@@ -32,20 +32,20 @@ code generator based on geenee metadata.
 
 <!-- toc -->
 
-* [:clipboard: Why](#why)
-* [:white_check_mark: What](#what)
-* [:wrench: Usage](#usage)
-* [:bulb: Example](#example)
-* [:zap: Creating Templates](#creating-templates)
-* [:cyclone: API](#api)
+* [:clipboard: Why](#clipboard-why)
+* [:white_check_mark: What](#white-check-mark-what)
+* [:wrench: Usage](#wrench-usage)
+* [:bulb: Example](#bulb-example)
+* [:zap: Creating Templates](#zap-creating-templates)
+* [:ledger: API](#ledger-api)
   <!-- tocstop -->
 
-# :clipboard: Why
+# <a name="clipboard-why"></a>:clipboard: Why
 A [geenee](https://www.npmjs.com/package/geenee) template is normally used for multiple generation of code. To do that, [geenee-spell](https://www.npmjs.com/package/geenee-spell) stores a `meta` directory within the generated code base to allow for regeneration.
 
 But `geenee` templates are a very powerful tool for one-time creation as well.  For instance, you may not want to include a `meta` directory in your code.
 
-# :white_check_mark: What
+# <a name="white-check-mark-what"></a>:white_check_mark: What
 A single async function that generates code from a specified geenee template and settings.
 
 It ignores anything in the directory of the package, with the exception on a [`package.json file`](#packagejson-files).
@@ -54,7 +54,7 @@ It will overwrite any files with the same path and name.
 
 Because it leaves everything else, you can apply a starter first.  That is useful because you can use [head-starter](https://www.npmjs.com/package/head-starter) with your same geenee template.
 
-# :wrench: Usage
+# <a name="wrench-usage"></a>:wrench: Usage
 Import the package:
 ```console
 npm i geenee-rate
@@ -91,10 +91,10 @@ config = await getConfig(templateDir)
 
 ```
 
-# :bulb: Example
+# <a name="bulb-example"></a>:bulb: Example
 Check out the [usage in geenee-spell](https://github.com/YizYah/geenee-spell/blob/main/src/custom/regenerateCode.ts).
 
-# :zap: Creating Templates
+# <a name="zap-creating-templates"></a>:zap: Creating Templates
 You can create such a template easily from a code base using [copykat](https://www.npmjs.com/package/copykat).
 
 Once you have created a basic template, geenee-rate has a [built-in context](https://github.com/YizYah/geenee-rate/wiki/Context-in-Geenee-Rate) to make the job much simpler. See the documenation of [barbells](https://www.npmjs.com/package/barbells) for treatment of handlebars helpers and partials.  You may find that you don't need to add any custom helpers.
@@ -122,7 +122,7 @@ Note that dependency versioning is not relevant to geenee-rate.  Whatever you ha
 
 
 [//]: # ( ns__custom_start APIIntro )
-# :cyclone: API
+# <a name="ledger-api"></a>:ledger: API
 ```typescript
 async function generateCode(
   codeDir: string,
