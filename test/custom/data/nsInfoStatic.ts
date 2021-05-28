@@ -1,4 +1,6 @@
-{
+import {NsInfo} from "magicalstrings";
+
+export const nsInfo: NsInfo = {
   "userClass": "user",
   "starter": "n/a",
   "codeName": "MyApp",
