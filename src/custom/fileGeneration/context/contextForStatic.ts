@@ -1,6 +1,6 @@
 import {Configuration} from 'cogs-box'
 import {NsInfo}  from 'magicalstrings'
-const {pluralLowercaseName, pluralName, singularName} = require('magicalstrings').inflections
+const {pluralLowercaseName, pluralName, singularName, singularLowercaseName} = require('magicalstrings').inflections
 const {links} = require('magicalstrings').constants
 
 import {createGeneralInfo} from './createGeneralInfo'
@@ -20,7 +20,7 @@ export const contextForStatic = async (
 ) => {
   const names = {
     singular: singularName(instance),
-    singularLowercase: instance,
+    singularLowercase: singularLowercaseName(instance),
     plural: pluralName(instance),
     pluralLowercase: pluralLowercaseName(instance),
     staticType,

@@ -1,4 +1,6 @@
-{
+import {Configuration} from "cogs-box";
+
+export const config = {
   "name": null,
   "version": 1,
   "category": "apollo neo4j aura",

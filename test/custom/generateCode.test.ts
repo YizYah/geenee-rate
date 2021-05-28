@@ -6,6 +6,7 @@ const {getNsInfo} = require('magicalstrings').nsFiles
 const fs = require('fs-extra')
 const path = require('path')
 const proxyquire =  require('proxyquire')
+const {nsInfo} = require('./data/nsInfoStatic')
 
 const fakeInstalledPackages: string[] = []
 const execaFake = async (file: string, args: string[]) => {
@@ -40,7 +41,6 @@ test.beforeEach(t => {
 })
 
 test.skip('copies files and installs', async t => {
-  const nsInfo = await getNsInfo(codeDir)
   const config = await getConfig(templateDir)
 
   // fs.readdir(SAMPLE_CODE + '/meta', (err: any, files: any) => {
@@ -87,8 +87,8 @@ test.skip('copies files and installs', async t => {
 });
 
 test('static types', async t=>{
-  const nsInfo = await fs.readJson(__dirname + '/data/nsInfoStatic.json')
-  const config = await fs.readJson(__dirname + '/data/configStatic.json')
+  const {nsInfo} = require('./data/nsInfoStatic')
+  const {config} = require('./data/configStatic')
 
   await generateCode(
       staticCodeDir, nsInfo, config, templateDir, false, {}, false
@@ -158,11 +158,6 @@ test.skip('nonreplaced keys', async t => {
   // })
   // t.regex(error.message, /no such file/)
   //
-  // error = await t.throwsAsync(async () => {
-  //   await setConfig(nonexistentDir, config)
-  // })
-  // t.regex(error.message, /no directory/)
-
 });
 
 test.afterEach(t => {

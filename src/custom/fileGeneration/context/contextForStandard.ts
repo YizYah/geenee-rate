@@ -7,11 +7,13 @@ const {dataTypes, nodeTypes, magicStrings, links} = require('magicalstrings').co
 const {
   allCaps,
   pluralLowercaseName,
+  singularLowercaseName,
   pluralName,
   singularName,
 }  = require('magicalstrings').inflections
 const Handlebars = require('handlebars')
 const fileInfoString = Handlebars.compile('unit: {{unitName}}, comp: {{component}}')
+
 
 export const contextForStandard = async (
   nsInfo: NsInfo,
@@ -25,9 +27,9 @@ export const contextForStandard = async (
 
   const names = {
     singular: singularName(component),
-    singularLowercase: component,
+    singularLowercase: singularLowercaseName(component),
     plural: pluralName(component),
-    pluralLowercase: pluralLowercaseName(component),
+    pluralLowercase: pluralLowercaseName(singularLowercaseName(component)),
     component,
   }
 
