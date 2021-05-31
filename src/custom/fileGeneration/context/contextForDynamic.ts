@@ -41,8 +41,9 @@ export const contextForDynamic = async (
 
   const {componentTypes} = config
   if (!componentTypes) throw new Error('No component types found for the template.')
+
   const componentTypeSpec = componentTypes[boilerPlateInfo.componentType]
-  if (!componentTypeSpec) throw new Error(`component type ${type} is used in the template,
+  if (!componentTypeSpec) throw new Error(`component type '${type}' is used in the template,
    but is not found in the config file in 'componentTypes'.`)
   const names = {
     singular: singularName(type),
@@ -85,6 +86,7 @@ export const contextForDynamic = async (
   const childrenInfoAll = children.map(child => {
     const childInfo = typesInfo[child]
     const assnInfo = childInfo.sources[unit]
+    console.log(`in children map for child '${child}'. assnInfo.assnType = ${assnInfo.assnType}`)
     if (assnInfo.assnType !== associationTypes.SINGLE_REQUIRED)
       return {
         nonProperty: true,

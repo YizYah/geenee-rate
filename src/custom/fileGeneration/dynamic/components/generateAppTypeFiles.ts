@@ -13,6 +13,7 @@ export async function generateAppTypeFiles(
 ) {
   const units = stackInfo.sources
   const unitKeys = Object.keys(units)
+  console.log(`about to go through unit generation.  units=${JSON.stringify(units)}`)
 
   let i
   for (i = 0; i < unitKeys.length; i++) {
