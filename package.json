@@ -84,7 +84,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commitDISABLED": "npm run test"
     }
   }
 }

@@ -1,10 +1,11 @@
 import {Configuration} from "cogs-box";
 
-export const config = {
-  "name": null,
-  "version": 1,
+export const config: Configuration = {
+  "name": "null",
+  "version": "1",
   "category": "apollo neo4j aura",
   "dirs": {
+    "components": "src/components",
     "custom": "src/custom"
   },
   "format": {
@@ -45,17 +46,35 @@ export const config = {
   },
   "static": {
     "userType": {
+      "description": "a test",
       "files": {
         "deleteUser.js": {
           "name": "delete__slug__",
           "suffix": ".js",
           "directory": "src/auth"
         }
+      },
+      "specs": {
+        foo: {
+          type: "string",
+          required: true,
+        },
       }
+    }
+  },
+  "componentTypes": {
+    item: {
+      singular: true,
     }
   },
   "ignore": [
     ".vscode/launch.json",
     ".env"
-  ]
+  ],
+  general: {
+
+  },
+  dataFunctionTypes: {
+
+  }
 }
