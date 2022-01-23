@@ -32,7 +32,6 @@ test('static context lowercase instance', async t => {
         "staticType": "myType",
         "component": "sampleFile.js"
     }
-    console.log(`staticContext = ${JSON.stringify(staticContext.names)}`)
     t.deepEqual(staticContext.names, expectedNames)
 })
 
@@ -64,6 +63,5 @@ test('static context upppercase instance', async t => {
         "staticType": "myType",
         "component": "sampleFile.js"
     }
-    console.log(`staticContext = ${JSON.stringify(staticContext.names)}`)
     t.deepEqual(staticContext.names, expectedNames)
 })

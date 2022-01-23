@@ -9,15 +9,6 @@ const proxyquire =  require('proxyquire')
 const {nsInfo} = require('./data/nsInfoStatic')
 
 const fakeInstalledPackages: string[] = []
-const execaFake = async (file: string, args: string[]) => {
-  if (file==='npm' && args[0]==='install' && args[1]==='--prefix') {
-    const codeDir=args[2]
-    fakeInstalledPackages.push(codeDir + ' packages')
-  }
-}
-
-// import {generateCode} from '../../src/custom/generateCode'
-const {generateCode} = proxyquire('../../src/custom/generateCode', {execa: execaFake})
 
 const SAMPLE_CODE = 'sampleCode'
 const TEMPLATE = 'template'
@@ -27,8 +18,30 @@ const dataDir = __dirname + '/data'
 const staticCodeDir = __dirname + '/staticCodeDir'
 const extraPackageJson = __dirname + '/extraPackage.json'
 
+const execaFake = async (file: string, args: string[]) => {
+  if (file==='npm' && args[0]==='install' && args[1]==='--prefix') {
+    const codeDir=args[2]
+    fakeInstalledPackages.push(codeDir + ' packages')
+  }
+}
+
+// const standardFilesFake = async (finalTemplateDir, codeDir, nsInfo, stackInfo)=>{
+//   if (
+//     finalTemplateDir !== templateDir &&
+//     codeDir !== __dirname + '/' + SAMPLE_CODE
+//   )
+//   throw new Error("parameters wrong for standardFiles");
+  
+// }
+
+// import {generateCode} from '../../src/custom/generateCode'
+const {generateCode} = proxyquire('../../src/custom/generateCode', {
+  execa: execaFake,
+  // standardFiles: standardFilesFake,
+})
+
+
 test.beforeEach(t => {
-  // mock('execa', execaFake);
   mockFs({
     [codeDir]: mockFs.load(codeDir),
     [staticCodeDir]: mockFs.load(codeDir),
@@ -43,22 +56,12 @@ test.beforeEach(t => {
 test.skip('copies files and installs', async t => {
   const config = await getConfig(templateDir)
 
-  // fs.readdir(SAMPLE_CODE + '/meta', (err: any, files: any) => {
-  //   files.forEach((file: any) => {
-  //     console.log(file);
-  //   });
-  // });
-
   // const newCustomJsonBefore = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
-  // console.log(`newCustomJsonBefore.addedCode=${JSON.stringify(newCustomJsonBefore.addedCode.standard['README.md'], null, 2)}`)
 
   // const tempFile = await fs.readFile(SAMPLE_CODE + '/temp.txt')
-  // console.log(`tempFile=${tempFile}`)
-  //
 
   // ensure that extra file exists
   let tempFileExists = await fs.pathExists(codeDir + '/temp.txt')
-  console.log(`codeDir=${codeDir}`)
   t.true(tempFileExists)
 
   // ensure that new file does not exist
@@ -97,11 +100,6 @@ test('static types', async t=>{
   const filesGenerated = fs.readdirSync(staticCodeDir + '/src/auth')
   t.true(filesGenerated.includes('deleteCustomer.js'))
   t.true(filesGenerated.includes('deleteSeller.js'))
-  // console.log(`files generated= ${JSON.stringify(filesGenerated)}`)
-  // fs.readdirSync(codeDir + '/src/auth').forEach((file:any) => {
-  //   console.log(file);
-  // });
-
 
   // json is showing
   const codeJson = await fs.readJson(staticCodeDir + '/package.json')
@@ -126,7 +124,6 @@ test.skip('nonreplaced keys', async t => {
     codeDir, nsInfo, config, templateDir, false,
   )
   codeJson = await fs.readJson(codeDir + '/package.json')
-  console.log(`codeJson after generation: ${JSON.stringify(codeJson,null,2)}`)
 
   t.is(codeJson.addedKey, 'blah')
   t.is(codeJson.name, 'NsName')
@@ -134,18 +131,7 @@ test.skip('nonreplaced keys', async t => {
   t.is(codeJson.nonReplacedKey, 'nonReplacedValue')
   t.is(codeJson.config.ghooks['pre-commit'], 'npm run test')
 
-  // const generatedDirContents = fs.readdirSync(codeDir).sort()
-  // console.log(JSON.stringify(generatedDirContents))
-  // t.true(await fs.pathExists(codeDir + '/.git'))
-
-
-  // console.log(`final json is: ${JSON.stringify(codeJson, null, 2)}`)
-
-
-
-
   // const newCustomJson = await fs.readJson(SAMPLE_CODE+ '/meta/customCode.json')
-  // console.log(`newCustomJson=${JSON.stringify(newCustomJson.addedCode.standard['README.md'], null, 2)}`)
 
 
   //

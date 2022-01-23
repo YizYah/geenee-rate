@@ -24,7 +24,6 @@ export async function generateTypeFile(
   const {componentTypes} = config
   if (!componentTypes) throw new Error('No component types found for the template.')
   const dir = componentName(type, componentTypes[boilerPlateInfo.componentType])
-  // console.log(`dir=${dir}`)
 
 //   try {
 //     await registerPartials(`${templateDir}/partials`)
@@ -38,7 +37,6 @@ export async function generateTypeFile(
 // ${error}`)
 //   }
 
-  // console.log(`here's a list of helpers: ${JSON.stringify(Handlebars.helpers, null, 2)}`)
   const genericTemplate = await loadFileTemplate(
     `${templateDir}/generic.hbs`, Handlebars, config.format.customFileFilter
   )
@@ -58,7 +56,6 @@ export async function generateTypeFile(
   )
 
   // if (boilerPlate === 'genericCreationFormRoot') {
-  //   console.log(`tags = ${JSON.stringify(tags, null, 2)}`)
   // }
   await makeDirs(dirList)
 

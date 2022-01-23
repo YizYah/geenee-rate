@@ -66,7 +66,6 @@ export async function generateFilesForType(
       dataType,
       nodeType,
     }
-    // console.log(`  boilerPlateInfo=${JSON.stringify(boilerPlateInfo)}`)
 
     await generateTypeFile(
       type,
@@ -90,9 +89,7 @@ export async function generateFilesForType(
   //   compDir
   // )
   //
-  // // // console.log(`assnType=${assnType}`)
   // // if (assnType !== associationTypes.SINGLE_REQUIRED) {
-  // //   // console.log('assnType === associationTypes.MULTIPLE is true!')
   // //   const creationBoilerPlateInfo = {
   // //     formType: formTypes.CREATION,
   // //     dataType,
