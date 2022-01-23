@@ -25,7 +25,6 @@ test('static context lowercase instance', async t => {
         "pluralLowercase": "myComponents",
         "component": "myComponent"
     }
-    console.log(`staticContext = ${JSON.stringify(staticContext.names)}`)
     t.deepEqual(staticContext.names, expectedNames)
 })
 
@@ -49,6 +48,5 @@ test('static context upppercase instance', async t => {
         "pluralLowercase": "myComponents",
         "component": "MyComponent"
     }
-    console.log(`staticContext = ${JSON.stringify(staticContext.names)}`)
     t.deepEqual(staticContext.names, expectedNames)
 })

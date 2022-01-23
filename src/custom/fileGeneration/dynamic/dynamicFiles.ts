@@ -57,7 +57,6 @@ export async function dynamicFiles(
         const finalFileText = replaceCommentDelimiters(
           pathString, config, queryFileText
         )
-        // console.log(`finalFileText for ${pathString}=${finalFileText}`)
         await fs.outputFile(pathString, finalFileText)
       } catch (error) {
         // eslint-disable-next-line no-console

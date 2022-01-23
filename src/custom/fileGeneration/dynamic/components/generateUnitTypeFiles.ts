@@ -17,8 +17,6 @@ export async function generateUnitTypeFiles(
   const sourceInfo = sources[source]
 
   // const {owner} = sourceInfo
-  // // console.log(`source=${source}, userClass=${userClass}, owner=${owner}`)
-  // // console.log(`source=${source}, sourceInfo=${JSON.stringify(sourceInfo, null, 2)}`)
   // if (owner !== userClass) return
 
   try {
@@ -36,7 +34,6 @@ export async function generateUnitTypeFiles(
     // @ts-ignore
     delete selectedTree[highestLevel]
 
-    // console.log(`source ${source} sourceInfo.unitType=${sourceInfo.unitType}`)
     if (sourceInfo.unitType === unitTypes.DATA_SOURCE) return
 
     const selectedTreeTypes = Object.keys(selectedTree)
@@ -44,7 +41,6 @@ export async function generateUnitTypeFiles(
     let j
     for (j = 0; j < selectedTreeTypes.length; j++) {
       const type = selectedTreeTypes[j]
-      // console.log(`*** typeName=${typeName}`)
       // eslint-disable-next-line no-await-in-loop
       await generateFilesForType(
         appInfo,

@@ -14,7 +14,6 @@ export async function configuredDirs(
     const dir = `${codeDir}/${dirs[name]}`
     try {
       await fs.ensureDir(dir, fileOptions)
-      // console.log('success creating dirs')
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error)
@@ -26,7 +25,6 @@ export async function configuredDirs(
     const dir = `${codeDir}/${config.dirs.components}/${unit}`
     try {
       await fs.ensureDir(dir, fileOptions)
-      // console.log('success creating dirs')
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error)

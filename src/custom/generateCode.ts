@@ -10,6 +10,7 @@ const buildSchema = require('create-stack-info')
 import * as path from 'path';
 import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
 import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
+import untildify = require('untildify')
 
 const createStarter = require('head-starter')
 const {getConfig} = require('cogs-box')
@@ -29,15 +30,7 @@ export async function generateCode(
   const {userClass, units} = nsInfo
 
   const stackInfo: Schema = await buildSchema(nsInfo, config)
-  const finalTemplateDir = path.resolve(templateDir)
-
-  /*
-  console.log(`in generated code, at the beginning.  codeDir=${codeDir}. Here are contents:`)
-  fs.readdirSync(codeDir).forEach((file:any) => {
-    console.log(file);
-  });
-   */
-
+  const finalTemplateDir = path.resolve(untildify(templateDir) )
 
   if (addStarter) {
     try {
@@ -61,7 +54,7 @@ export async function generateCode(
   }
 
   try {
-    if (units) {
+    if (units && Object.keys(units).length > 0) {
       await configuredDirs(
         config, codeDir, Object.keys(units)
       )
@@ -71,7 +64,7 @@ export async function generateCode(
   }
 
   // mapObject
-  if (units) {
+  if (units && Object.keys(units).length > 0) {
     try {
       await dynamicFiles(
           config, nsInfo, codeDir
