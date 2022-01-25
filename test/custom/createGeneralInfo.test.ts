@@ -9,6 +9,6 @@ import { nsInfo } from './data/nsInfo'
 
 test('createGeneralInfo', async t => {
     const result = await createGeneralInfo(nsInfo, codeDir)
-    t.is(result.static.userType[1].slug, "1")
+    t.is(result.settings.static.userType[1].slug, "1")
 
 })
