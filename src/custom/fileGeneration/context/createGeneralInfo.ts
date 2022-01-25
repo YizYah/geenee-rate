@@ -13,6 +13,7 @@ export async function createGeneralInfo(nsInfo: NsInfo, codeDir: string) {
     general.json = codePackageJson
   }
 
+  general.settings = nsInfo
   general.codeDir = codeDir
   return general
 }
