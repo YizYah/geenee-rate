@@ -563,13 +563,13 @@ export const nsInfo: NsInfo = {
             stackId: "us-east-1_kYI8RNIb1",
             aws: {
                 region: "us-east-1",
-                access: "AKIAIZTE45ZPXCLFTI6Q",
-                secret: "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",
+                access: "AGEKFSGLLBBdEE",
+                secret: "8fEqkc5EWze09W9ymFQYjmVsY8BWkxPQ//bA232jjj",
             },
             neo4j: {
                 URI: "neo4j+s://8e153e87.databases.neo4j.io",
                 USER: "neo4j",
-                PASSWORD: "7rBKRxO8QiFBB8vPJxI3lPQe6FzUcWAP5onHlK2Hyt0",
+                PASSWORD: "7rBKRxO8QGKLOGEOOOOOOOOOOOOOOOOOOyt0",
             },
             cognito: {
                 CLIENT: "32die49k9pojqu6r3eb8evuq37",
